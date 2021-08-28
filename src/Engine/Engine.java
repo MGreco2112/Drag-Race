@@ -2,6 +2,7 @@ package Engine;
 
 public abstract class Engine {
     protected String type;
+    protected int maxSpeed;
     protected int accelerationRate;
     protected int breakRate;
     protected boolean isOn = false;
@@ -10,6 +11,10 @@ public abstract class Engine {
 
     public boolean getIsOn() {
         return isOn;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
     }
 
     public int getAccelerationRate() {

@@ -7,6 +7,7 @@ public class GasEngine extends Engine{
         this.isGas = true;
         this.accelerationRate = 25;
         this.breakRate = 8;
+        this.maxSpeed = 200;
     }
 
 
