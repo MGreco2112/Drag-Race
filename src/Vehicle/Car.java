@@ -11,6 +11,13 @@ public class Car extends Vehicle{
         this.isLand = true;
     }
 
+    protected void accelerate() {
+        currentSpeed += engine.getAccelerationRate();
+    }
+
+    protected void decelerate() {
+        currentSpeed -= engine.getBreakRate();
+    }
 
 
 }

@@ -6,20 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Vehicle {
-    public String type;
-    public Engine engine;
-    public int maxLoad;
-    public boolean isLand = false;
-    public boolean isAir = false;
-    public boolean isWater = false;
+    protected String type;
+    protected Engine engine;
+    protected int maxLoad;
+    protected int currentSpeed = 0;
+    protected boolean isLand = false;
+    protected boolean isAir = false;
+    protected boolean isWater = false;
 
-    public void toggleEngine() {
-        if (!engine.isOn) {
+    protected void toggleEngine() {
+        if (!engine.getIsOn()) {
             engine.turnOn();
         } else {
             engine.turnOff();
         }
     }
+
+    protected abstract void accelerate();
+
+    protected abstract void decelerate();
 
 
 }

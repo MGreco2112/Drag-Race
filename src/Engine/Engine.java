@@ -1,10 +1,24 @@
 package Engine;
 
 public abstract class Engine {
-    public String type;
-    public boolean isOn = false;
-    public boolean isGas = false;
-    public boolean isElectric = false;
+    protected String type;
+    protected int accelerationRate;
+    protected int breakRate;
+    protected boolean isOn = false;
+    protected boolean isGas = false;
+    protected boolean isElectric = false;
+
+    public boolean getIsOn() {
+        return isOn;
+    }
+
+    public int getAccelerationRate() {
+        return accelerationRate;
+    }
+
+    public int getBreakRate() {
+        return breakRate;
+    }
 
     public void turnOn() {
         if (!isOn) {
