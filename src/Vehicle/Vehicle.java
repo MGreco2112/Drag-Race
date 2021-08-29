@@ -8,7 +8,6 @@ import java.util.List;
 public abstract class Vehicle {
     protected String type;
     protected Engine engine;
-    protected int maxLoad;
     protected int currentSpeed = 0;
     protected boolean isLand = false;
     protected boolean isAir = false;

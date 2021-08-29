@@ -5,15 +5,18 @@ import Engine.Engine;
 public class Car extends Vehicle{
     protected String name;
 
-    public Car(String name, Engine engine, int maxLoad) {
+    public Car(String name, Engine engine) {
         this.name = name;
         this.type = "Car";
         this.engine = engine;
-        this.maxLoad = maxLoad;
         this.isLand = true;
     }
 
-    protected void accelerate() {
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public void accelerate() {
         if (currentSpeed < engine.getMaxSpeed()) {
             currentSpeed += engine.getAccelerationRate();
 
@@ -27,7 +30,7 @@ public class Car extends Vehicle{
         }
     }
 
-    protected void decelerate() {
+    public void decelerate() {
 
         if (currentSpeed > 0) {
             currentSpeed -= engine.getBreakRate();
@@ -40,6 +43,10 @@ public class Car extends Vehicle{
         } else {
             System.out.println("Car is stopped");
         }
+    }
+
+    public String toString() {
+        return name + " " + engine;
     }
 
 

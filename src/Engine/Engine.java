@@ -42,4 +42,13 @@ public abstract class Engine {
             System.out.println("Engine is already off");
         }
     }
+
+    public String toString() {
+        if (isGas) {
+            return "Gas Engine" + ":\nSpeed in ft/s: " + accelerationRate + "\nBreaking Rate in ft/s: " + breakRate;
+        } else {
+            return "Electric Engine" + ":\nSpeed in ft/s: " + accelerationRate + "\nBreaking Rate in ft/s: " + breakRate;
+        }
+    }
+
 }
