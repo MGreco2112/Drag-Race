@@ -5,7 +5,7 @@ public abstract class Engine {
     protected int maxSpeed;
     protected int accelerationRate;
     protected int breakRate;
-    protected boolean isOn = false;
+    protected boolean isOn = true;
     protected boolean isGas = false;
     protected boolean isElectric = false;
 
@@ -25,23 +25,6 @@ public abstract class Engine {
         return breakRate;
     }
 
-    public void turnOn() {
-        if (!isOn) {
-            System.out.println("Engine is now on");
-            isOn = true;
-        } else {
-            System.out.println("Engine is already on");
-        }
-    }
-
-    public void turnOff() {
-        if (isOn) {
-            System.out.println("Engine is now off");
-        } else {
-            isOn = false;
-            System.out.println("Engine is already off");
-        }
-    }
 
     public String toString() {
         if (isGas) {

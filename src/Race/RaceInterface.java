@@ -4,6 +4,7 @@ import Engine.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -45,6 +46,24 @@ public class RaceInterface {
     }
 
     private static void turn() {
+        String choice = "";
+        System.out.println("Welcome to " + currentTrack.getName() + "!\nTrack length: " + currentTrack.getTrackLength() + " feet");
+
+        do {
+            System.out.println("What will you do?" +
+                    "\n(a)ccelerate?" +
+                    "\n(c)oast" +
+                    "\n(b)reak");
+
+            choice = scanner.nextLine();
+
+            switch (choice.toLowerCase(Locale.ROOT)) {
+                case "a" ->
+            }
+
+
+
+        } while (currentTrack.carLocation < currentTrack.getTrackLength());
 
     }
 
