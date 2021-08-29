@@ -44,6 +44,14 @@ public class Track {
         return trackLength;
     }
 
+    public int getCarLocation() {
+        return carLocation;
+    }
+
+    protected void increaseCarLocation(int carSpeed) {
+        carLocation += carSpeed;
+    }
+
     public void addTurnTaken() {
         turnsTaken++;
     }

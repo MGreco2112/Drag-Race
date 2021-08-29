@@ -16,6 +16,10 @@ public class Car extends Vehicle{
         return currentSpeed;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void accelerate() {
         if (currentSpeed < engine.getMaxSpeed()) {
             currentSpeed += engine.getAccelerationRate();

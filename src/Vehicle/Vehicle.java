@@ -13,12 +13,8 @@ public abstract class Vehicle {
     protected boolean isAir = false;
     protected boolean isWater = false;
 
-    protected void toggleEngine() {
-        if (!engine.getIsOn()) {
-            engine.turnOn();
-        } else {
-            engine.turnOff();
-        }
+    public int getCurrentSpeed() {
+        return currentSpeed;
     }
 
     protected abstract void accelerate();

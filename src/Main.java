@@ -38,7 +38,7 @@ public class Main {
         Ask for help when stuck and take the needed time to plan.
 	     */
 
-
+        RaceInterface.game();
 
     }
 }

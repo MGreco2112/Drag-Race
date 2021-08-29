@@ -30,12 +30,14 @@ public class RaceInterface {
 
         do {
             turn();
-        } while (currentTrack.carLocation < currentTrack.getTrackLength());
+        } while (currentTrack.getCarLocation() < currentTrack.getTrackLength());
 
-        while (currentTrack.carLocation >= currentTrack.getTrackLength() && racingCar.getCurrentSpeed() > 0) {
+        while (currentTrack.getCarLocation() >= currentTrack.getTrackLength() && racingCar.getCurrentSpeed() > 0) {
             racingCar.decelerate();
+            currentTrack.addTurnTaken();
         }
 
+        endOfRace();
     }
 
     private static void setupGame() {
@@ -50,6 +52,11 @@ public class RaceInterface {
         System.out.println("Welcome to " + currentTrack.getName() + "!\nTrack length: " + currentTrack.getTrackLength() + " feet");
 
         do {
+
+            System.out.println(racingCar.getName() + " is currently traveling at " + racingCar.getCurrentSpeed() + " " +
+                    "feet per second and is " + (currentTrack.getTrackLength() - currentTrack.getCarsLength()) + " " +
+                    "feet away from the finish");
+
             System.out.println("What will you do?" +
                     "\n(a)ccelerate?" +
                     "\n(c)oast" +
@@ -58,19 +65,26 @@ public class RaceInterface {
             choice = scanner.nextLine();
 
             switch (choice.toLowerCase(Locale.ROOT)) {
-                case "a" ->
+                case "a" -> accelerateCar();
+                case "c" -> coast();
+                case "b" -> decreaseSpeed();
+                default -> System.out.println("Invalid Selection\nTry again");
             }
 
+            currentTrack.increaseCarLocation(racingCar.getCurrentSpeed());
 
+            System.out.println(racingCar.getName() + " is currently " + (currentTrack.getTrackLength() - currentTrack.getCarLocation()) + " feet from the finish");
 
-        } while (currentTrack.carLocation < currentTrack.getTrackLength());
+            currentTrack.addTurnTaken();
+
+        } while (currentTrack.getCarLocation() < currentTrack.getTrackLength());
 
     }
 
     private static void getTracks() {
         for (int i = 0; i < tracks.size(); i++) {
             System.out.printf("%d) ", i+1);
-            System.out.printf("%s: Length in ft/s: ", tracks.get(i).getName());
+            System.out.printf("%s: Length in ft: ", tracks.get(i).getName());
             System.out.printf("%d\n", tracks.get(i).getTrackLength());
         }
     }
@@ -134,6 +148,32 @@ public class RaceInterface {
         racingCar = new Car(carType, engineType);
     }
 
+    private static void accelerateCar() {
+        System.out.print(racingCar.getName() + " accelerates from " + racingCar.getCurrentSpeed() + " feet per " +
+                "second");
+
+        racingCar.accelerate();
+
+        System.out.println(" to " + racingCar.getCurrentSpeed() + " feet per second");
+    }
+
+    private static void coast() {
+        System.out.println(racingCar.getName() + " continues at " + racingCar.getCurrentSpeed() + " feet per second");
+    }
+
+    private static void decreaseSpeed() {
+        System.out.print(racingCar.getName() + " reduces speed from " + racingCar.getCurrentSpeed() + " feet per " +
+                "second");
+
+        racingCar.decelerate();
+
+        System.out.println(" to " + racingCar.getCurrentSpeed() + " feet per second");
+    }
+
+    private static void endOfRace() {
+        System.out.println("The race is over!\n" + racingCar.getName() + " finished in " + currentTrack.getTurnsTaken() +
+                " turns");
+    }
 
 
 }
