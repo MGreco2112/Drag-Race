@@ -54,8 +54,7 @@ public class RaceInterface {
         do {
 
             System.out.println(racingCar.getName() + " is currently traveling at " + racingCar.getCurrentSpeed() + " " +
-                    "feet per second and is " + (currentTrack.getTrackLength() - currentTrack.getCarsLength()) + " " +
-                    "feet away from the finish");
+                    "feet per second");
 
             System.out.println("What will you do?" +
                     "\n(a)ccelerate?" +
