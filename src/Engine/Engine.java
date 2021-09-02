@@ -1,37 +1,14 @@
 package Engine;
 
-public abstract class Engine {
-    protected String type;
-    protected int maxSpeed;
-    protected int accelerationRate;
-    protected int breakRate;
-    protected boolean isOn = true;
-    protected boolean isGas = false;
-    protected boolean isElectric = false;
+public interface Engine {
 
-    public boolean getIsOn() {
-        return isOn;
-    }
+    public boolean getIsOn();
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
+    public int getMaxSpeed();
 
-    public int getAccelerationRate() {
-        return accelerationRate;
-    }
+    public int getAccelerationRate();
 
-    public int getBreakRate() {
-        return breakRate;
-    }
+    public int getBreakRate();
 
-
-    public String toString() {
-        if (isGas) {
-            return "Gas Engine" + ":\nSpeed in ft/s: " + accelerationRate + "\nBreaking Rate in ft/s: " + breakRate;
-        } else {
-            return "Electric Engine" + ":\nSpeed in ft/s: " + accelerationRate + "\nBreaking Rate in ft/s: " + breakRate;
-        }
-    }
 
 }
