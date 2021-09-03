@@ -91,9 +91,9 @@ public class RaceInterface {
     private static void setCurrentTrack() {
         String choice = "";
 
-        tracks.add(new Track("Beginner Track", 1_500));
-        tracks.add(new Track("Intermediate Track", 1_000));
-        tracks.add(new Track("Expert Track", 500));
+        tracks.add(new Track("Beginner Track", 1_500, -250));
+        tracks.add(new Track("Intermediate Track", 1_000, -150));
+        tracks.add(new Track("Expert Track", 500, -50));
 
         do {
             System.out.println("Which Track would you like to race on?\nEnter the number next to the Track");
