@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class RaceInterface {
     private static Car racingCar;
     private static Track currentTrack;
+    private static boolean hitWall = false;
     private static List<Track> tracks = new ArrayList<>();
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -35,6 +36,12 @@ public class RaceInterface {
         while (currentTrack.getCarLocation() >= currentTrack.getTrackLength() && racingCar.getCurrentSpeed() > 0) {
             racingCar.decelerate();
             currentTrack.addTurnTaken();
+
+            if (currentTrack.getCarLocation() <= currentTrack.locationOfWall) {
+                System.out.println("You hit the wall! Game Over!");
+                hitWall = true;
+                return;
+            }
         }
 
         endOfRace();
@@ -173,7 +180,7 @@ public class RaceInterface {
 
     private static void endOfRace() {
         System.out.println("The race is over!\n" + racingCar.getName() + " finished in " + currentTrack.getTurnsTaken() +
-                " turns");
+                " turns" + (hitWall ? ". You hit the wall" : "."));
     }
 
 

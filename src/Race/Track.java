@@ -7,7 +7,7 @@ import Engine.*;
 public class Track {
     private final String name;
     private final int trackLength;
-    private final int locationOfWall;
+    protected int locationOfWall;
     protected int carLocation = 0;
     private int turnsTaken = 0;
     private final String[] cars = {"DeLorean", "Nissan Z", "Acura NSX", "Mustang GT"};
