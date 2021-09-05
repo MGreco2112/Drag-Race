@@ -33,6 +33,8 @@ public class RaceInterface {
             turn();
         } while (currentTrack.getCarLocation() < currentTrack.getTrackLength());
 
+        System.out.println("Finish line crossed! Breaking...");
+
         while (currentTrack.getCarLocation() >= currentTrack.getTrackLength() && racingCar.getCurrentSpeed() > 0) {
             racingCar.decelerate();
             currentTrack.addTurnTaken();
