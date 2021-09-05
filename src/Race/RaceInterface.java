@@ -8,7 +8,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 
-public class RaceInterface {
+public abstract class RaceInterface {
     private static Car racingCar;
     private static Track currentTrack;
     private static boolean hitWall = false;
