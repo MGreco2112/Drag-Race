@@ -37,9 +37,10 @@ public abstract class RaceInterface {
 
         while (currentTrack.getCarLocation() >= currentTrack.getTrackLength() && racingCar.getCurrentSpeed() > 0) {
             racingCar.decelerate();
+            currentTrack.increaseCarLocation(racingCar.getCurrentSpeed());
             currentTrack.addTurnTaken();
 
-            if (currentTrack.getCarLocation() <= currentTrack.locationOfWall) {
+            if (currentTrack.getCarLocation() >= currentTrack.locationOfWall) {
                 System.out.println("You hit the wall! Game Over!");
                 hitWall = true;
                 return;
@@ -182,7 +183,8 @@ public abstract class RaceInterface {
 
     private static void endOfRace() {
         System.out.println("The race is over!\n" + racingCar.getName() + " finished in " + currentTrack.getTurnsTaken() +
-                " turns" + (hitWall ? ". You hit the wall" : "."));
+                " turns" + (hitWall ? ". You hit the wall." : ". Distance from the Finish: "
+                + (currentTrack.getTrackLength() - currentTrack.getCarLocation()) + " feet."));
     }
 
 
